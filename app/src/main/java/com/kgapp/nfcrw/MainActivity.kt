@@ -1,12 +1,26 @@
 package com.kgapp.nfcrw
 
-import android.app.Activity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.TextView
+import android.widget.LinearLayout
+import android.view.Gravity
 
-class MainActivity : Activity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        // 这里以后加你的 NFC 读写逻辑
+
+        val layout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            gravity = Gravity.CENTER
+        }
+
+        val textView = TextView(this).apply {
+            text = "Hello NFCReadWrite!"
+            textSize = 24f
+        }
+
+        layout.addView(textView)
+        setContentView(layout)
     }
 }
